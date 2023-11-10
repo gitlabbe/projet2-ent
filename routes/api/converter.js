@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
 router.post("/", async (req, res) => {
     const { type, value } = req.body;
 
-    if (type && !isNaN(value)) {
+    if (type) {
         let result;
         let conversionType;
 
