@@ -48,7 +48,7 @@ jobs:
             echo "Done Waiting"
             if [ -n "$(pgrep -f 'node index.js')" ]; then
               echo "Encore ouvert"
-            if
+            fi
           fi
           npm install express
           nohup sudo node index.js &
