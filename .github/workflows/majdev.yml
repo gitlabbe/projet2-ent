@@ -41,9 +41,5 @@ jobs:
         with:
           node-version: 21.x
       - run: |
-          echo "Stopping Node.js server"
-          sudo pkill -f 'node index.js'
-          sleep 10 # Attendez un peu pour permettre la fermeture propre
-          echo "Done Waiting"
           npm install express
           nohup sudo node index.js &
