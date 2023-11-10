@@ -56,7 +56,7 @@ router.post("/", async (req, res) => {
                 conversionType = "Gallons to Liters";
                 break;
             default:
-                res.status(400).send("Unsupported conversion type.");
+                res.status(400).send("Unsupported conversion type. ");
                 return;
         }
 
