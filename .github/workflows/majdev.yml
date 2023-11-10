@@ -42,4 +42,4 @@ jobs:
           node-version: 21.x
       - run: |
           npm install express
-          sudo node index.js &
+          sudo node index.js
