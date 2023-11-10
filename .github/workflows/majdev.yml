@@ -41,5 +41,6 @@ jobs:
         with:
           node-version: 21.x
       - run: |
+          sudo pkill -f "node index.js"
           npm install express
           sudo node index.js
