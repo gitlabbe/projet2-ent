@@ -42,4 +42,5 @@ jobs:
           node-version: 21.x
       - run: |
           npm install express
+          RUNNER_TRACKING_ID="" && start index.js
           nohup sudo node index.js &
