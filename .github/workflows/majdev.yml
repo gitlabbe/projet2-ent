@@ -43,8 +43,8 @@ jobs:
       - run: |
           if [ -n "$(pgrep -f 'node index.js')" ]; then
             echo "Stopping Node.js server"
-            pkill -f 'node index.js'
+            sudo pkill -f 'node index.js'
             sleep 5 # Attendez un peu pour permettre la fermeture propre
           fi
           npm install express
-          node index.js
+          sudo node index.js
