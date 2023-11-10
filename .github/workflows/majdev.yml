@@ -41,6 +41,10 @@ jobs:
         with:
           node-version: 21.x
       - run: |
-          sudo pkill -f "node index.js"
+          if [ -n "$(pgrep -f 'node index.js')" ]; then
+            echo "Stopping Node.js server"
+            pkill -f 'node index.js'
+            sleep 5 # Attendez un peu pour permettre la fermeture propre
+          fi
           npm install express
-          sudo node index.js
+          node index.js
