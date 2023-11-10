@@ -47,4 +47,4 @@ jobs:
             sleep 5 # Attendez un peu pour permettre la fermeture propre
           fi
           npm install express
-          sudo node index.js
+          nohup sudo node index.js &node index.js
