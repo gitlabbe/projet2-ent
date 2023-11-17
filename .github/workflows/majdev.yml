@@ -7,8 +7,8 @@ on:
   # Triggers the workflow on push or pull request events but only for the "dev" branch
   push:
     branches: [ "dev" ]
-  #pull_request:
-    #branches: [ "dev" ]
+  pull_request:
+    branches: [ "dev" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -22,24 +22,13 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Regarde si la branche est 'dev'
-        run: |
-          if [ "$GITHUB_REF" = "refs/heads/dev" ]; then
-            echo "La branche est 'dev', workflow access."
-          else
-            echo "La branche n'est pas 'dev', workflow access denied."
-            exit 1
-          fi
-    
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # Runs a set of commands using the runners shell
-      - name: Initialisation du contenu de la branche
-        uses: actions/setup-node@v3
-        with:
-          node-version: 21.x
-      - run: |
-          npm install express
-          RUNNER_TRACKING_ID="" && nohup sudo node index.js &
+      - name: Stop
+        run: docker stop asd
+      - name: Del
+        run: docker rm asd
+      - name: Pull git
+        uses: actions/checkout@v2
+      - name: Build
+        run: docker build -t asd:docker .\
+      - name: Start docker
+        run: docker run --name asd -d -p 80:80 asd:docker 
